@@ -1,0 +1,41 @@
+{
+  "name": "nodex-aaa-oauth",
+  "version": "0.0.0",
+  "description": "Injectable OAuth 1.0 implementation for Bixby.js.",
+  "keywords": [
+    "oauth"
+  ],
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/modulate/nodex-aaa-oauth.git"
+  },
+  "bugs": {
+    "url": "http://github.com/modulate/nodex-aaa-oauth/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib",
+  "dependencies": {
+    "oauthorize": "^0.1.0",
+    "uid2": "0.0.3"
+  },
+  "devDependencies": {
+    "mocha": "1.x.x",
+    "chai": "1.x.x"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "nodex-aaa-oauth",
+  "name": "@authnomicon/aaa-oauth",
   "version": "0.0.0",
   "description": "Injectable OAuth 1.0 implementation for Bixby.js.",
   "keywords": [
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/modulate/nodex-aaa-oauth.git"
+    "url": "git://github.com/authnomicon/aaa-oauth.git"
   },
   "bugs": {
-    "url": "http://github.com/modulate/nodex-aaa-oauth/issues"
+    "url": "http://github.com/authnomicon/aaa-oauth/issues"
   },
   "licenses": [
     {

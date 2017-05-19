@@ -24,6 +24,12 @@
     }
   ],
   "main": "./lib",
+  "assembly": {
+    "namespace": "oauth",
+    "components": [
+      "server"
+    ]
+  },
   "dependencies": {
     "oauthorize": "^0.1.0",
     "uid2": "0.0.3"

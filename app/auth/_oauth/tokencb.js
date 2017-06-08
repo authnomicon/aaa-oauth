@@ -11,4 +11,4 @@ exports = module.exports = function(tcs) {
   };
 };
 
-exports['@require'] = [ 'http://schemas.modulate.io/js/aaa/oauth/TCS' ];
+exports['@require'] = [ '../../tcs' ];

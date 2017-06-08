@@ -7,7 +7,6 @@ exports = module.exports = function(server, parseCb, issueCb, parse, authenticat
   ];
 };
 
-
 exports['@require'] = [
   '../../server',
   './_initiate/parsecb',

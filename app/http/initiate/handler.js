@@ -1,4 +1,4 @@
-exports = module.exports = function(server, parseCb, issueCb, parse, authenticate) {
+exports = module.exports = function(parseCb, issueCb, server, parse, authenticate) {
   
   return [
     parse('application/x-www-form-urlencoded'),
@@ -8,9 +8,9 @@ exports = module.exports = function(server, parseCb, issueCb, parse, authenticat
 };
 
 exports['@require'] = [
+  './parse',
+  './issue',
   '../../server',
-  './_initiate/parsecb',
-  './_initiate/issuecb',
   'http://i.bixbyjs.org/http/middleware/parse',
   'http://i.bixbyjs.org/http/middleware/authenticate'
 ];

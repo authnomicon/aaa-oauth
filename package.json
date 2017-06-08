@@ -27,10 +27,11 @@
   "assembly": {
     "namespace": "oauth",
     "components": [
-      "server"
+      "http/token"
     ]
   },
   "dependencies": {
+    "express": "^4.15.3",
     "oauthorize": "^0.1.0",
     "uid2": "0.0.3"
   },

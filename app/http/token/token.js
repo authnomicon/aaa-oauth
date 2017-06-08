@@ -4,7 +4,7 @@ exports = module.exports = function(server, verifyCb, issueCb) {
 
 
 exports['@require'] = [
-  'http://schemas.modulate.io/js/aaa/oauth/Server',
+  '../../server',
   './_token/verifycb',
   './_token/issuecb'
 ];

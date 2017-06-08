@@ -10,6 +10,6 @@ exports = module.exports = function(initiateHandler, tokenHandler) {
 
 exports['@implements'] = 'http://schemas.authnomicon.org/js/oauth/http/TokenService';
 exports['@require'] = [
-  './initiate/initiate',
+  './initiate/handler',
   './token/token'
 ];

@@ -1,6 +1,9 @@
 exports = module.exports = function(services, Tokens, TokensNegotiator, rsg) {
   
   return function issue(client, token, info, cb) {
+    console.log('issue...');
+    return;
+    
     if (typeof info.user == 'string') {
       info.user = { id: info.user };
     }
@@ -63,9 +66,9 @@ exports = module.exports = function(services, Tokens, TokensNegotiator, rsg) {
 };
 
 exports['@require'] = [
-  'http://schemas.modulate.io/js/aaa/services/Directory',
-  'http://i.bixbyjs.org/tokens/Encoder',
+  //'http://schemas.modulate.io/js/aaa/services/Directory',
+  //'http://i.bixbyjs.org/tokens/Encoder',
   // TODO: Collaps this into the facade that combines Encoder and Negotiator
-  'http://i.bixbyjs.org/tokens/Negotiator',
-  'http://i.bixbyjs.org/crypto/RSG'
+  //'http://i.bixbyjs.org/tokens/Negotiator',
+  //'http://i.bixbyjs.org/crypto/RSG'
 ];

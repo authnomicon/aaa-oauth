@@ -1,8 +1,11 @@
-exports = module.exports = function(tcs, rsg) {
+exports = module.exports = function(/*tcs, rsg*/) {
   
   return function issue(client, redirectURI, params, cb) {
     // TODO: Validate that callbackURL is registered to client???
     
+    console.log('INIT!');
+    
+    /*
     // TODO: Base the length of the signing algorithm employed by the client
     var secret = rsg.generate(32);
     
@@ -10,10 +13,11 @@ exports = module.exports = function(tcs, rsg) {
       if (err) { return cb(err); }
       return cb(null, token, secret);
     });
+    */
   };
 };
 
 exports['@require'] = [
-  'http://schemas.modulate.io/js/aaa/oauth/TCS',
-  'http://i.bixbyjs.org/crypto/RSG'
+  //'http://schemas.modulate.io/js/aaa/oauth/TCS',
+  //'http://i.bixbyjs.org/crypto/RSG'
 ];

@@ -1,15 +1,17 @@
-exports = module.exports = function(server, parseCb, issueCb) {
-  return server.requestToken(parseCb, issueCb);
+exports = module.exports = function(server, parseCb, issueCb, parse, authenticate) {
+  
+  return [
+    parse('application/x-www-form-urlencoded'),
+    authenticate(['oauth']),
+    server.requestToken(parseCb, issueCb)
+  ];
 };
 
 
 exports['@require'] = [
   '../../server',
   './_initiate/parsecb',
-  './_initiate/issuecb'
-];
-
-exports['@implements'] = [
-  'http://i.expressjs.com/endpoint',
-  'http://schemas.modulate.io/js/aaa/oauth/endpoint/initiate'
+  './_initiate/issuecb',
+  'http://i.bixbyjs.org/http/middleware/parse',
+  'http://i.bixbyjs.org/http/middleware/authenticate'
 ];

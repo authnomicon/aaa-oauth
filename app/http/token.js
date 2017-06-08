@@ -2,8 +2,8 @@ exports = module.exports = function(initiateHandler, tokenHandler) {
   var express = require('express');
   var router = new express.Router();
   
-  router.get('/initiate', initiateHandler);
-  router.get('/token', tokenHandler);
+  router.post('/initiate', initiateHandler);
+  router.post('/token', tokenHandler);
   
   return router;
 };

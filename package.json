@@ -23,7 +23,7 @@
       "url": "http://www.opensource.org/licenses/MIT"
     }
   ],
-  "main": "./lib",
+  "main": "./app",
   "assembly": {
     "namespace": "oauth",
     "components": [

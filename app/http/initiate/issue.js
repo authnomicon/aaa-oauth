@@ -1,23 +1,31 @@
-exports = module.exports = function(/*tcs, rsg*/) {
+exports = module.exports = function(Tokens, Crypto) {
   
-  return function issue(client, redirectURI, params, cb) {
+  return function issue(client, callbackURL, params, cb) {
     // TODO: Validate that callbackURL is registered to client???
     
-    console.log('INIT!');
-    
-    /*
+    var ctx = {};
     // TODO: Base the length of the signing algorithm employed by the client
-    var secret = rsg.generate(32);
+    var secret = Crypto.randomString(16);
     
-    tcs.store({ client: client, redirectURI: redirectURI, secret: secret }, function(err, token) {
+    ctx.client = client;
+    ctx.redirectURI = callbackURL;
+    ctx.confirmation = [ {
+      method: 'holder-of-key',
+      key: secret
+    } ];
+    
+    // FIXME: Make this confidential
+    Tokens.cipher(ctx, { dialect: 'http://schemas.authnomicon.org/jwt/oauth/request-token', confidential: false }, function(err, token) {
+      console.log(err);
+      console.log(token);
+
       if (err) { return cb(err); }
-      return cb(null, token, secret);
+      return cb(null, token);
     });
-    */
   };
 };
 
 exports['@require'] = [
-  //'http://schemas.modulate.io/js/aaa/oauth/TCS',
-  //'http://i.bixbyjs.org/crypto/RSG'
+  'http://i.bixbyjs.org/tokens',
+  'http://i.bixbyjs.org/crypto'
 ];

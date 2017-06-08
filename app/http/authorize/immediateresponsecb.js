@@ -6,6 +6,10 @@ exports = module.exports = function(Audience, services) {
     // https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-03
     // TODO: Document this in aaa module
     
+    console.log('OAUTH!!!!');
+    
+    return;
+    
     Audience.infer(client, user, areq, function(err, audience) {
       if (err) { return cb(err); }
       
@@ -27,6 +31,6 @@ exports = module.exports = function(Audience, services) {
 };
 
 exports['@require'] = [
-  'http://schemas.modulate.io/js/aaa/audience',
-  'http://schemas.modulate.io/js/aaa/services/Directory'
+  //'http://schemas.modulate.io/js/aaa/audience',
+  //'http://schemas.modulate.io/js/aaa/services/Directory'
 ];

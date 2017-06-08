@@ -27,6 +27,7 @@
   "assembly": {
     "namespace": "oauth",
     "components": [
+      "http/authorization",
       "http/token",
       "auth/oauth",
       "tokens/request/interpret",

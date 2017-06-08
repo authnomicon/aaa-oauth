@@ -1,7 +1,21 @@
-exports = module.exports = function(tcs, directory) {
+exports = module.exports = function(Tokens) {
   
   return function validateRequest(token, params, cb) {
     // TODO: Need to handle callbackURL (in params) here if not using OAuth 1.0a
+    
+    console.log('VALIDATE!');
+    console.log(token)
+    console.log(params);
+    
+    Tokens.decipher(token, { dialect: 'http://schemas.authnomicon.org/jwt/oauth/request-token' }, function(err, claims) {
+      console.log('DECIPHERED TOKEN');
+      console.log(err);
+      console.log(claims)
+      
+    });
+    
+    
+    return;
     
     tcs.load(token, function(err, info) {
       if (err) { return cb(err); }
@@ -19,6 +33,7 @@ exports = module.exports = function(tcs, directory) {
 };
 
 exports['@require'] = [
+  'http://i.bixbyjs.org/tokens',
   'http://schemas.modulate.io/js/aaa/oauth/TCS',
   'http://schemas.modulate.io/js/aaa/clients/Directory',
 ];

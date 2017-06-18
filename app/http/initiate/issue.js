@@ -9,13 +9,18 @@ exports = module.exports = function(Tokens, Crypto) {
     
     ctx.client = client;
     ctx.redirectURI = callbackURL;
+    ctx.audience = [
+      'http://localhost/oauth/'
+    ];
     ctx.confirmation = [ {
       method: 'holder-of-key',
       key: secret
     } ];
     
     // FIXME: Make this confidential
+    console.log('-> Token.cipher');
     Tokens.cipher(ctx, { dialect: 'http://schemas.authnomicon.org/jwt/oauth/request-token', confidential: false }, function(err, token) {
+      console.log('<- Token.cipher');
       console.log(err);
       console.log(token);
 

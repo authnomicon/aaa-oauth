@@ -4,7 +4,7 @@ exports = module.exports = function() {
   
   return function translateRequestTokenToJWT(ctx, cb) {
     var claims = {}
-      , cnf, i, len;
+      , el, i, len;
     
     claims.cid = ctx.client.id;
     
@@ -18,23 +18,35 @@ exports = module.exports = function() {
       claims.target_link_uri = ctx.redirectURI;
     }
     
+    if (ctx.audience) {
+      claims.aud = [];
+      
+      for (i = 0, len = ctx.audience.length; i < len; ++i) {
+        el = ctx.audience[i];
+        
+        if (typeof el == 'string') {
+          claims.aud.push(el);
+        }
+      }
+    }
+    
     if (ctx.confirmation) {
       claims.cnf = {};
       
       for (i = 0, len = ctx.confirmation.length; i < len; ++i) {
-        cnf = ctx.confirmation[i];
+        el = ctx.confirmation[i];
         
-        switch (cnf.method) {
+        switch (el.method) {
         case 'holder-of-key':
-          if (typeof cnf.key == 'string') {
-            claims.cnf.jwk = { kty: 'oct', k: base64url.encode(cnf.key) };
+          if (typeof el.key == 'string') {
+            claims.cnf.jwk = { kty: 'oct', k: base64url.encode(el.key) };
           } else {
             return cb(new Error('Unsupported key type: '));
           }
           break;
           
         default:
-          return cb(new Error('Unsupported request token confirmation method: ' + cnf.method));
+          return cb(new Error('Unsupported request token confirmation method: ' + el.method));
         }
       }
     }

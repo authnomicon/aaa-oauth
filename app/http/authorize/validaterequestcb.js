@@ -35,5 +35,5 @@ exports = module.exports = function(Tokens) {
 exports['@require'] = [
   'http://i.bixbyjs.org/tokens',
   'http://schemas.modulate.io/js/aaa/oauth/TCS',
-  'http://schemas.modulate.io/js/aaa/clients/Directory',
+  //'http://schemas.modulate.io/js/aaa/clients/Directory',
 ];
